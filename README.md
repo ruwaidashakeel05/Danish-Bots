@@ -183,8 +183,8 @@ MyLoft (accessed through the British Council library) requires a Chrome extensio
 - Identified the correct extension ID via `chrome://extensions` (Developer mode)
 - Copied the versioned extension folder into the project under `extensions/myloft`
 - Loaded it on app startup using `session.defaultSession.extensions.loadExtension()` (see `main.js` in step 4)
-- 
-- NOTE: The extensions/myloft folder contains files belonging to a third-party Chrome extension, not original project code. Since that extension is not open-source or freely redistributable, it was added to .gitignore instead of being pushed to the public repo:
+  
+NOTE: The extensions/myloft folder contains files belonging to a third-party Chrome extension, not original project code. Since that extension is not open-source or freely redistributable, it was added to .gitignore instead of being pushed to the public repo:
 
 ## 11. Run the App
 
