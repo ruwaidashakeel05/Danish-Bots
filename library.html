@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #0d0c16;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 26px;
+            background: #14121f;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .logo {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #c8c5d8;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .back-btn:hover {
+            border-color: #ff9a4d;
+            color: #ff9a4d;
+        }
+
+        webview {
+            flex: 1;
+            width: 100%;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/lob.png" alt="Logo" style="width: 100%; height: 100%; border-radius: 9px;">
+        </div>
+        <button class="back-btn" id="webviewBackBtn">↩ Back</button>
+        <button class="back-btn" id="backBtn">Home</button>
+    </div>
+
+    <webview id="councilView" src="https://www.britishcouncil.org"
+        useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        allowpopups>
+    </webview>
+    <script>
+        document.getElementById('backBtn').addEventListener('click', () => {
+            window.location.href = 'index.html'
+        })
+
+        const councilView = document.getElementById('councilView')
+
+        councilView.addEventListener('new-window', (e) => {
+            e.preventDefault()
+            councilView.src = e.url
+        })
+
+        document.getElementById('webviewBackBtn').addEventListener('click', () => {
+            const councilView = document.getElementById('councilView')
+            if (councilView.canGoBack()) {
+                councilView.goBack()
+            }
+        })
+    </script>
+
+</body>
+
+</html>

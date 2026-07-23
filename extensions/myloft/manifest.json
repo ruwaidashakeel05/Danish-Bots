@@ -1,0 +1,46 @@
+{
+   "action": {
+      "default_icon": "icons/icon19.png",
+      "default_popup": "src/browser_action/browser_action.html",
+      "default_title": "__MSG_browser_action_title__"
+   },
+   "author": "Eclat Engineering Pvt. Ltd.",
+   "background": {
+      "service_worker": "src/bg/service_worker.js",
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "js": [ "src/content/inject-icon.js", "src/content/search-keyword-analytics.js" ],
+      "matches": [ "*://*/*" ]
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'  ; object-src 'self'; default-src 'self'  https://*.myloft.xyz https://*.remotexs.cn  https://*.eclateng.com https://www.google.com  https://*.remotexs.co https://*.remotexs.xyz;     style-src 'self' https://fonts.googleapis.com 'unsafe-inline';font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com data:; "
+   },
+   "default_locale": "en",
+   "description": "__MSG_manifest_description__",
+   "externally_connectable": {
+      "matches": [ "https://*.myloft.xyz/*" ]
+   },
+   "homepage_url": "https://app.myloft.xyz/",
+   "host_permissions": [ "*://*/*" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo1BD97Bs07yjK3ijbPn3AsNAsAAYMVwZmooE6yuzpIH/FTJzf5cgpacXj039JOqFJPexQ1Re5w6g2eq+Udaz6ymuQLnKcMwNbX0aJsclrq5wAgSPyQUevyHZMDLqCQulTbx6O4eKmj4lcTI3tC9eXgililDZgjfY8HwWKCtm9dO6MGxNQXETyztYXqf/1r5ul92xnJYIEl4MDcpmoQL3Fi+29dRdSxm5lle1AefL882vZ5xUnLu/NjDv3eZZFmEXIJmdYI0omMvPMduPEeiO8ufW+3L64tqF6Apnsdw4UgcSzw9ce+KBH2SfpDIMQ3GQ7v+OxK3u8qdrsanFF7r/nQIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "110",
+   "name": "MyLOFT",
+   "options_ui": {
+      "open_in_tab": false,
+      "page": "src/options/options.html"
+   },
+   "permissions": [ "webRequest", "webRequestAuthProvider", "scripting", "activeTab", "proxy", "cookies", "idle", "notifications", "storage", "alarms", "webNavigation" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.2.52",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "src/domain-rules/domain-rules.html", "/icons/*", "/src/notifiers/*", "/assets/*", "/src/content/findDoi.css", "icon.png" ]
+   } ]
+}
