@@ -1,5 +1,27 @@
+# Dependencies
 node_modules/
-package-lock.json
-*.log
+
+# Build output
+dist/
+out/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# Third-party browser extension files (not original project code)
+extensions/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Editor folders
 .vscode/
+.idea/
